@@ -1,139 +1,107 @@
-import React, { Component } from 'react'
-import Paper from '@material-ui/core/Paper';
+import React from 'react'
 import Box from '@material-ui/core/Box'
-import Card from '@material-ui/core/Card'
-import Button from '@material-ui/core/Button'
-import CardContent from '@material-ui/core/CardContent'
-import CardActionArea from '@material-ui/core/CardActionArea';
+import Bigsquare from './Componentesp2/Bigsquare'
 import { ThemeProvider,createMuiTheme,withStyles } from '@material-ui/core/styles';
-import axios from 'axios'
-import { Input } from '@material-ui/core';
-
+import Switch from '@material-ui/core/Switch';
 
 const useStyles = () => ({
-    header:{
-        fontWeight:"700",
-        display:"flex",
-        justifyContent:"space-between",
-        alignItems:"center",
-        fontSize:"16px",
-    },
-    input:{
-        display:"flex",
-        alignItems:"center",
-        flexDirection:"row",
-    },
-    form:{
-        display:"flex",
-        flexDirection:"row",
-    },
-    paises:{
-        display:"flex",
-        flexWrap:"wrap",
-        flexDirection:"row",
-    },
-    format:{
+    principal:{
+        width:"100%",
+        height:"auto",
+        border:"1px red solid",
         display:"flex",
         flexDirection:"column",
+        transition:"all 0.3s ease",
     },
-    
+    container1:{
+       backgroundColor:"hsl(228, 28%, 20%)",
+       position:"relative",
+       margin:"auto",
+        
+    },
+    box1:{
+      display:"flex",
+      flexDirection:"row",
+      justifyContent:"space-between",
+      alignItems:"center",
+      marginTop:"20px",
+      margin:"auto",
+    },
+    media:{
+      position:"absolute",
+      display:"flex",
+      flexDirection:"row",
+      top:"50%",
+    },
+   
 });
 
 const theme = createMuiTheme({
     typography: {
       fontFamily: [
-        'Nunito Sans',
+        'Inter',
         'sans-serif',
       ].join(','),
     },
 });
 
-class Proyecto2 extends Component {
+class Proyecto2 extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = { 
-            paises:[],
-            nombrepais:"",
-            pasandonombrepais:"",
-            datosporpais:[],
-            
-         
-
+          checkedA:true,
+          color:"hsl(230, 17%, 14%)",
         }
+       
+       
+    }
+    handlechange = (e)=>{
+        this.setState({checkedA:e.target.checked}) 
+        e.target.checked ? this.setState({color:'hsl(230, 17%, 14%)'}) : 
+        this.setState({ color: 'hsl(0, 0%, 100%)' });
     }
     
-    componentDidMount() {
-        
-        axios.get('https://restcountries.eu/rest/v2/all')
-        .then(response =>{
-            this.setState({ paises: response.data });
-           
-        })
-        .catch(error=>{
-            console.log("Algo ha salido mal api countries",error)
-        })
-        
-        axios.get(`https://restcountries.eu/rest/v2/name/${this.state.pasandonombrepais}`)
-        .then(response=>{
-            this.setState({datosporpais:response.data});
-            
-        })
-        .catch(error=>{
-            console.log("No se encontro este pais",error)
-        })
-    }
-    
-    Send = (e) =>{
-        e.preventDefault();
-        this.setState({ pasandonombrepais:this.state.nombrepais })
-    }
     render() { 
         const { classes } = this.props
-        const { paises } = this.state
-        
+        console.log(this.state.checkedA)
         return (
-          <ThemeProvider theme={theme}>
-            <Paper ref={this.header} elevation={2} className={classes.header} style={{maxWidth:"100%",height:"50px"}}>
-                <span style={{marginLeft:"40px"}}>Donde en el mundo?</span> 
-                <Button type="submit"  style={{marginRight:"40px"}} size="small" variant="contained" color="default">
-                  Dark Mode
-                </Button>
-            </Paper>
-            <Box ref={this.form}  className={classes.input} style={{width:"100%",height:"70px"}}>
-                    <form className={classes.form}>
-                        <Paper elevation={2} style={{marginLeft:"40px",width:"350px"}}>
-                            <Input type="text" style={{width:"100%",height:"50px"}}
-                              onChange={(e)=> this.setState({ nombrepais: e.target.value })}
-                            />
-                        </Paper>
-                        <Button onClick={this.Send} variant="contained" color="primary">
-                             Buscar
-                        </Button>
-                    </form>
+          <ThemeProvider theme={theme}>  
+            <Box style={{backgroundColor:this.state.color}} className={classes.principal}>
+                <Box className={classes.container1} style={{width:"100%",height:"280px"}}>
+                  <Box className={classes.box1} 
+                  style={{width:"1200px",height:"50px"}}>
+
+                  <Box>
+                    <span style={{fontWeight:700,color:"#fff",fontSize:"20px"}}>
+                      Social Media Dashboard
+                    </span>
+                  </Box>
+                  
+                  <Box>
+                  <span style={{fontWeight:700,color:"hsl(228, 12%, 44%)"}}>Dark Mode</span>
+                  <Switch
+                  checked={this.state.checkedA}
+                  name="switchvalue"
+                  size="small"
+                  color="primary"
+                  onChange={this.handlechange}
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  >
+                  </Switch>
+                  </Box>
+
+                  <Box className={classes.media} 
+                  style={{width:"1200px",height:"250px"}}>
+                    <Bigsquare></Bigsquare>
+                  </Box>
+                  
+                  </Box>
+                </Box>
+                <Box style={{width:"100%",height:"500px",border:"1px blue solid"}}>
+
+                </Box>
             </Box>
-            <Box ref={this.body} className={classes.paises} style={{width:"100%",padding:"40px"}}>
-                {
-                   
-                    paises.map(datos=>(
-                        <Card key={datos.name} style={{width:"200px",height:"200px",marginLeft:"5px",marginRight:"5px",marginBottom:"10px",marginTop:"10px"}}>
-                            <CardActionArea style={{width:"100%",height:"100px"}}>
-                                <img style={{width:"100%",height:"100px"}} alt="banderas" src={datos.flag}>
-                                </img>
-                            </CardActionArea>
-                            <CardContent className={classes.format} style={{width:"100%"}}>
-                                <span style={{fontWeight:"600",fontSize:"10px"}}>Nombre:{datos.name}</span>
-                                <span style={{fontWeight:"600",fontSize:"10px"}}>Capital:{datos.capital}</span>
-                                <span style={{fontWeight:"600",fontSize:"10px"}}>Region:{datos.region}</span>
-                                <span style={{fontWeight:"600",fontSize:"10px"}}>Población:{datos.population}</span>
-                            </CardContent>
-                        </Card>
-                    ))
-                }
-                
-            </Box>
-          </ThemeProvider>
-        
-                   
+          </ThemeProvider>        
          );
     }
 }
