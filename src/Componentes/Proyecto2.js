@@ -3,6 +3,7 @@ import Box from '@material-ui/core/Box'
 import Bigsquare from './Componentesp2/Bigsquare'
 import { ThemeProvider,createMuiTheme,withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
+import facebook from '../Imagenes/icon-facebook.svg'
 
 const useStyles = () => ({
     principal:{
@@ -51,6 +52,7 @@ class Proyecto2 extends React.PureComponent {
         this.state = { 
           checkedA:true,
           color:"hsl(230, 17%, 14%)",
+          
         }
        
        
@@ -63,7 +65,7 @@ class Proyecto2 extends React.PureComponent {
     
     render() { 
         const { classes } = this.props
-        console.log(this.state.checkedA)
+       
         return (
           <ThemeProvider theme={theme}>  
             <Box style={{backgroundColor:this.state.color}} className={classes.principal}>
@@ -92,7 +94,9 @@ class Proyecto2 extends React.PureComponent {
 
                   <Box className={classes.media} 
                   style={{width:"1200px",height:"250px"}}>
-                    <Bigsquare></Bigsquare>
+                    
+                    <Bigsquare logos={facebook} colortext="hsl(228, 12%, 44%)" colores="hsl(210, 78%, 56%)" ></Bigsquare>
+                    
                   </Box>
                   
                   </Box>
