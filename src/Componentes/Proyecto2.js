@@ -4,21 +4,25 @@ import Bigsquare from './Componentesp2/Bigsquare'
 import { ThemeProvider,createMuiTheme,withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import facebook from '../Imagenes/icon-facebook.svg'
+import arrowup from '../Imagenes/icon-up.svg'
+import twitter from '../Imagenes/icon-twitter.svg'
+import arrowdown from '../Imagenes/icon-down.svg'
+import youtube from '../Imagenes/icon-youtube.svg'
+import instagram from '../Imagenes/icon-instagram.svg'
 
 const useStyles = () => ({
     principal:{
         width:"100%",
         height:"auto",
-        border:"1px red solid",
         display:"flex",
         flexDirection:"column",
-        transition:"all 0.3s ease",
+        transition:"all 0.3s linear",
     },
     container1:{
-       backgroundColor:"hsl(228, 28%, 20%)",
        position:"relative",
        margin:"auto",
-        
+       width:"100%",
+       height:"250px",
     },
     box1:{
       display:"flex",
@@ -32,8 +36,9 @@ const useStyles = () => ({
       position:"absolute",
       display:"flex",
       flexDirection:"row",
-      top:"50%",
+      top:"60%",
     },
+    
    
 });
 
@@ -52,6 +57,10 @@ class Proyecto2 extends React.PureComponent {
         this.state = { 
           checkedA:true,
           color:"hsl(230, 17%, 14%)",
+          colorc1:"hsl(228, 28%, 20%)",
+          colortext:"hsl(228, 34%, 66%)",
+          colornumero:"hsl(0, 0%, 100%)",
+          title:'hsl(0, 0%, 100%)',
           
         }
        
@@ -59,22 +68,34 @@ class Proyecto2 extends React.PureComponent {
     }
     handlechange = (e)=>{
         this.setState({checkedA:e.target.checked}) 
-        e.target.checked ? this.setState({color:'hsl(230, 17%, 14%)'}) : 
-        this.setState({ color: 'hsl(0, 0%, 100%)' });
+        if(e.target.checked){ 
+        this.setState({color:'hsl(230, 17%, 14%)'})
+        this.setState({colornumero:'hsl(0, 0%, 100%)'})
+        this.setState({colorc1:'hsl(228, 28%, 20%)'})
+        this.setState({colortext:'hsl(228, 34%, 66%)'})
+        this.setState({title:'hsl(0, 0%, 100%)'})
+        }
+        else{
+        this.setState({ color:'hsl(0, 0%, 100%)' })
+        this.setState({ colorc1:'hsl(225, 100%, 98%)'})
+        this.setState({colortext:'hsl(228, 12%, 44%)'})
+        this.setState({colornumero:'hsl(228, 28%, 20%)'})
+        this.setState({title:'hsl(228, 28%, 20%)'})
+       }
     }
     
     render() { 
         const { classes } = this.props
-       
+        const { color,colorc1,colortext,colornumero,title } = this.state
         return (
           <ThemeProvider theme={theme}>  
-            <Box style={{backgroundColor:this.state.color}} className={classes.principal}>
-                <Box className={classes.container1} style={{width:"100%",height:"280px"}}>
+            <Box style={{backgroundColor:color}} className={classes.principal}>
+                <Box className={classes.container1} style={{backgroundColor:colorc1}}>
                   <Box className={classes.box1} 
                   style={{width:"1200px",height:"50px"}}>
 
                   <Box>
-                    <span style={{fontWeight:700,color:"#fff",fontSize:"20px"}}>
+                    <span style={{fontWeight:700,color:title,fontSize:"20px"}}>
                       Social Media Dashboard
                     </span>
                   </Box>
@@ -95,13 +116,59 @@ class Proyecto2 extends React.PureComponent {
                   <Box className={classes.media} 
                   style={{width:"1200px",height:"250px"}}>
                     
-                    <Bigsquare logos={facebook} colortext="hsl(228, 12%, 44%)" colores="hsl(210, 78%, 56%)" ></Bigsquare>
+                    <Bigsquare  
+                    colorcard={color}
+                    numero="1987" 
+                    colornumero={colornumero}
+                    logos={facebook} 
+                    colortext={colortext} 
+                    colores="hsl(210, 78%, 56%)" 
+                    arrow={arrowup}
+                    colorarrow="hsl(163, 72%, 41%)"
+                    followers="12 Today"
+                    ></Bigsquare>
+
+                    <Bigsquare  
+                    colorcard={color}
+                    numero="1044" 
+                    colornumero={colornumero}
+                    logos={twitter} 
+                    colortext={colortext} 
+                    colores="hsl(210, 78%, 56%)" 
+                    arrow={arrowup}
+                    colorarrow="hsl(163, 72%, 41%)"
+                    followers="99 Today"
+                    ></Bigsquare>
+
+                    <Bigsquare  
+                    colorcard={color}
+                    numero="11K" 
+                    colornumero={colornumero}
+                    logos={instagram} 
+                    colortext={colortext} 
+                    colores="hsl(37, 97%, 70%)" 
+                    arrow={arrowup}
+                    colorarrow="hsl(163, 72%, 41%)"
+                    followers="1099 Today"
+                    ></Bigsquare>
+
+                    <Bigsquare  
+                    colorcard={color}
+                    numero="8239" 
+                    colornumero={colornumero}
+                    logos={youtube} 
+                    colortext={colortext}  
+                    colores="hsl(348, 97%, 39%)" 
+                    arrow={arrowdown}
+                    colorarrow="hsl(348, 97%, 39%)"
+                    followers="144 Today"
+                    ></Bigsquare>
                     
                   </Box>
                   
                   </Box>
                 </Box>
-                <Box style={{width:"100%",height:"500px",border:"1px blue solid"}}>
+                <Box style={{width:"100%",height:"500px"}}>
 
                 </Box>
             </Box>
