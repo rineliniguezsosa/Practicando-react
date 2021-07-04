@@ -17,6 +17,7 @@ const useStyles = () =>({
         display:"flex",
         flexDirection:"column", 
         marginRight:"20px",
+        transition:"all 0.3s linear",
     },
     scmedia:{
         display:"flex",

@@ -1,6 +1,7 @@
 import React from 'react'
 import Box from '@material-ui/core/Box'
 import Bigsquare from './Componentesp2/Bigsquare'
+import Smallsquare from './Componentesp2/Smallsquare'
 import { ThemeProvider,createMuiTheme,withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import facebook from '../Imagenes/icon-facebook.svg'
@@ -16,18 +17,20 @@ const useStyles = () => ({
         height:"auto",
         display:"flex",
         flexDirection:"column",
-        transition:"all 0.3s linear",
+        
     },
     container1:{
        position:"relative",
        margin:"auto",
        width:"100%",
        height:"250px",
+       transition:"all 0.3s linear",
     },
     box1:{
       display:"flex",
       flexDirection:"row",
       justifyContent:"space-between",
+     
       alignItems:"center",
       marginTop:"20px",
       margin:"auto",
@@ -37,9 +40,27 @@ const useStyles = () => ({
       display:"flex",
       flexDirection:"row",
       top:"60%",
+      transition:"all 0.3s linear",
+      
+    },
+    mediatwo:{
+      margin:"auto",
+      marginTop:"40px",
+      display:"flex",
+      flexDirection:"row",
+      transition:"all 0.3s linear",
+    },
+    mediathree:{
+      margin:"auto",
+      marginTop:"20px",
+      display:"flex",
+      flexDirection:"row",
+      transition:"all 0.3s linear",
+    },
+    change:{
+      transition:"all 0.3s linear",
     },
     
-   
 });
 
 const theme = createMuiTheme({
@@ -58,13 +79,12 @@ class Proyecto2 extends React.PureComponent {
           checkedA:true,
           color:"hsl(230, 17%, 14%)",
           colorc1:"hsl(228, 28%, 20%)",
+          colorc2:"hsl(228, 28%, 20%)",
           colortext:"hsl(228, 34%, 66%)",
           colornumero:"hsl(0, 0%, 100%)",
           title:'hsl(0, 0%, 100%)',
-          
-        }
-       
-       
+        
+        } 
     }
     handlechange = (e)=>{
         this.setState({checkedA:e.target.checked}) 
@@ -72,12 +92,14 @@ class Proyecto2 extends React.PureComponent {
         this.setState({color:'hsl(230, 17%, 14%)'})
         this.setState({colornumero:'hsl(0, 0%, 100%)'})
         this.setState({colorc1:'hsl(228, 28%, 20%)'})
+        this.setState({colorc2:'hsl(228, 28%, 20%)'})
         this.setState({colortext:'hsl(228, 34%, 66%)'})
         this.setState({title:'hsl(0, 0%, 100%)'})
         }
         else{
-        this.setState({ color:'hsl(0, 0%, 100%)' })
-        this.setState({ colorc1:'hsl(225, 100%, 98%)'})
+        this.setState({color:'hsl(0, 0%, 100%)' })
+        this.setState({colorc1:'hsl(0, 0%, 100%)'})
+        this.setState({colorc2:'hsl(225, 100%, 98%)'})
         this.setState({colortext:'hsl(228, 12%, 44%)'})
         this.setState({colornumero:'hsl(228, 28%, 20%)'})
         this.setState({title:'hsl(228, 28%, 20%)'})
@@ -86,11 +108,11 @@ class Proyecto2 extends React.PureComponent {
     
     render() { 
         const { classes } = this.props
-        const { color,colorc1,colortext,colornumero,title } = this.state
+        const { color,colorc1,colorc2,colortext,colornumero,title } = this.state
         return (
           <ThemeProvider theme={theme}>  
-            <Box style={{backgroundColor:color}} className={classes.principal}>
-                <Box className={classes.container1} style={{backgroundColor:colorc1}}>
+            <Box className={classes.principal}>
+                <Box className={classes.container1} style={{backgroundColor:colorc2}}>
                   <Box className={classes.box1} 
                   style={{width:"1200px",height:"50px"}}>
 
@@ -117,7 +139,7 @@ class Proyecto2 extends React.PureComponent {
                   style={{width:"1200px",height:"250px"}}>
                     
                     <Bigsquare  
-                    colorcard={color}
+                    colorcard={colorc1}
                     numero="1987" 
                     colornumero={colornumero}
                     logos={facebook} 
@@ -129,7 +151,7 @@ class Proyecto2 extends React.PureComponent {
                     ></Bigsquare>
 
                     <Bigsquare  
-                    colorcard={color}
+                    colorcard={colorc1}
                     numero="1044" 
                     colornumero={colornumero}
                     logos={twitter} 
@@ -141,7 +163,7 @@ class Proyecto2 extends React.PureComponent {
                     ></Bigsquare>
 
                     <Bigsquare  
-                    colorcard={color}
+                    colorcard={colorc1}
                     numero="11K" 
                     colornumero={colornumero}
                     logos={instagram} 
@@ -153,7 +175,7 @@ class Proyecto2 extends React.PureComponent {
                     ></Bigsquare>
 
                     <Bigsquare  
-                    colorcard={color}
+                    colorcard={colorc1}
                     numero="8239" 
                     colornumero={colornumero}
                     logos={youtube} 
@@ -168,8 +190,46 @@ class Proyecto2 extends React.PureComponent {
                   
                   </Box>
                 </Box>
-                <Box style={{width:"100%",height:"500px"}}>
-
+                <Box className={classes.change} style={{width:"100%",height:"500px",backgroundColor:color}}>
+                  <Box style={{margin:"auto",marginTop:"150px",width:"1200px"}}>
+                    <span style={{fontWeight:700,color:title,fontSize:"20px"}}>Información general-Hoy</span>
+                  </Box>
+                  <Box className={classes.mediatwo} style={{width:"1200px",height:"auto"}}>
+                      <Smallsquare
+                      colorcard={colorc1}
+                      titulo="Page Views"
+                      colortext={colortext}
+                      icons={facebook}
+                      arrow={arrowup}
+                      number="87"
+                      colornumero={colornumero}
+                      subs="3%"
+                      />
+                      <Smallsquare
+                      colorcard={colorc1}
+                      />
+                      <Smallsquare
+                      colorcard={colorc1}
+                      />
+                      <Smallsquare
+                      colorcard={colorc1}
+                      />
+                  </Box>
+                  <Box className={classes.mediathree} style={{width:"1200px",height:"auto"}}>
+                      <Smallsquare
+                      colorcard={colorc1}
+                      
+                      />
+                      <Smallsquare
+                      colorcard={colorc1}
+                      />
+                      <Smallsquare
+                      colorcard={colorc1}
+                      />
+                      <Smallsquare
+                      colorcard={colorc1}
+                      />
+                  </Box>
                 </Box>
             </Box>
           </ThemeProvider>        
