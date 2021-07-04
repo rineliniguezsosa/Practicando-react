@@ -10,58 +10,7 @@ import twitter from '../Imagenes/icon-twitter.svg'
 import arrowdown from '../Imagenes/icon-down.svg'
 import youtube from '../Imagenes/icon-youtube.svg'
 import instagram from '../Imagenes/icon-instagram.svg'
-
-const useStyles = () => ({
-    principal:{
-        width:"100%",
-        height:"auto",
-        display:"flex",
-        flexDirection:"column",
-        
-    },
-    container1:{
-       position:"relative",
-       margin:"auto",
-       width:"100%",
-       height:"250px",
-       transition:"all 0.3s linear",
-    },
-    box1:{
-      display:"flex",
-      flexDirection:"row",
-      justifyContent:"space-between",
-     
-      alignItems:"center",
-      marginTop:"20px",
-      margin:"auto",
-    },
-    media:{
-      position:"absolute",
-      display:"flex",
-      flexDirection:"row",
-      top:"60%",
-      transition:"all 0.3s linear",
-      
-    },
-    mediatwo:{
-      margin:"auto",
-      marginTop:"40px",
-      display:"flex",
-      flexDirection:"row",
-      transition:"all 0.3s linear",
-    },
-    mediathree:{
-      margin:"auto",
-      marginTop:"20px",
-      display:"flex",
-      flexDirection:"row",
-      transition:"all 0.3s linear",
-    },
-    change:{
-      transition:"all 0.3s linear",
-    },
-    
-});
+import { useStyles } from '../Styleproyecto2/Style.js'
 
 const theme = createMuiTheme({
     typography: {
@@ -113,8 +62,7 @@ class Proyecto2 extends React.PureComponent {
           <ThemeProvider theme={theme}>  
             <Box className={classes.principal}>
                 <Box className={classes.container1} style={{backgroundColor:colorc2}}>
-                  <Box className={classes.box1} 
-                  style={{width:"1200px",height:"50px"}}>
+                  <Box className={classes.box1} style={{width:"1200px",height:"50px"}}>
 
                   <Box>
                     <span style={{fontWeight:700,color:title,fontSize:"20px"}}>
@@ -135,8 +83,7 @@ class Proyecto2 extends React.PureComponent {
                   </Switch>
                   </Box>
 
-                  <Box className={classes.media} 
-                  style={{width:"1200px",height:"250px"}}>
+                  <Box className={classes.media} style={{width:"1200px",height:"250px"}}>
                     
                     <Bigsquare  
                     colorcard={colorc1}
@@ -204,30 +151,86 @@ class Proyecto2 extends React.PureComponent {
                       number="87"
                       colornumero={colornumero}
                       subs="3%"
+                      colorarrow="hsl(163, 72%, 41%)"
                       />
                       <Smallsquare
                       colorcard={colorc1}
+                      titulo="Likes"
+                      colortext={colortext}
+                      icons={facebook}
+                      arrow={arrowdown}
+                      number="52"
+                      colornumero={colornumero}
+                      subs="2%"
+                      colorarrow="hsl(348, 97%, 39%)"
                       />
                       <Smallsquare
                       colorcard={colorc1}
+                      titulo="Likes"
+                      colortext={colortext}
+                      icons={instagram}
+                      arrow={arrowup}
+                      number="5462"
+                      colornumero={colornumero}
+                      subs="2257%"
+                      colorarrow="hsl(163, 72%, 41%)"
                       />
                       <Smallsquare
                       colorcard={colorc1}
+                      titulo="Profile Views"
+                      colortext={colortext}
+                      icons={instagram}
+                      arrow={arrowup}
+                      number="52K"
+                      colornumero={colornumero}
+                      subs="1375%"
+                      colorarrow="hsl(163, 72%, 41%)"
                       />
                   </Box>
                   <Box className={classes.mediathree} style={{width:"1200px",height:"auto"}}>
                       <Smallsquare
                       colorcard={colorc1}
-                      
+                      titulo="Retweets"
+                      colortext={colortext}
+                      icons={twitter}
+                      arrow={arrowup}
+                      number="117"
+                      colornumero={colornumero}
+                      subs="303%"
+                      colorarrow="hsl(163, 72%, 41%)"
                       />
                       <Smallsquare
                       colorcard={colorc1}
+                      titulo="Likes"
+                      colortext={colortext}
+                      icons={twitter}
+                      arrow={arrowup}
+                      number="507"
+                      colornumero={colornumero}
+                      subs="553%"
+                      colorarrow="hsl(163, 72%, 41%)"
                       />
                       <Smallsquare
                       colorcard={colorc1}
+                      titulo="Likes"
+                      colortext={colortext}
+                      icons={youtube}
+                      arrow={arrowdown}
+                      number="107"
+                      colornumero={colornumero}
+                      subs="19%"
+                      colorarrow="hsl(348, 97%, 39%)"
                       />
                       <Smallsquare
                       colorcard={colorc1}
+                      titulo="Total Views"
+                      colortext={colortext}
+                      icons={youtube}
+                      arrow={arrowdown}
+                      number="1407"
+                      colornumero={colornumero}
+                      subs="12%"
+                      colorarrow="hsl(348, 97%, 39%)"
                       />
                   </Box>
                 </Box>

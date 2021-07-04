@@ -1,5 +1,5 @@
 
-const useStyles = () => ({
+export const useStyles = () => ({
     principal:{
         width:"100%",
         height:"auto",
@@ -51,4 +51,3 @@ const useStyles = () => ({
     
 });
 
-export default useStyles
