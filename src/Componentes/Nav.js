@@ -9,7 +9,6 @@ const useStyles = () => ({
     root:{
       maxWidth:"100%",
       height:"50px",
-      // border:"1px #E0E0E0 solid",
       display:"flex",
       flexDirection:"row",
       justifyContent:"center",
@@ -29,6 +28,7 @@ function Nav(props) {
                 <ButtonGroup className={classes.res} size="small" variant="contained" color="primary">
                   <Button component={RouterLink} to="/" >Proyecto1</Button>
                   <Button component={RouterLink} to="/Proyecto2">Proyecto2</Button> 
+                  <Button component={RouterLink} to="/Proyecto3">Proyecto3</Button>
                 </ButtonGroup>
             </Grid>
         
