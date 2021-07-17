@@ -7,3 +7,7 @@
 ## Proyecto 2.- media dashboard,darkmode
 
 <img src="./src/Imagenes/media.png" alt="proyecto2">
+
+## Proyecto 3.- Birthday app
+
+<img src="./src/Imagenes/proyecto3.png" alt="proyecto3">

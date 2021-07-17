@@ -1,38 +1,40 @@
-export const datos = [
+const datos = [
     {
         id:0,
-        nombre:"rinel",
+        nombre:"Bryan",
         imagen:"https://randomuser.me/api/portraits/men/64.jpg",
-        edad:25,
+        edad:20,
     },
     {
         id:1,
-        nombre:"rinel",
+        nombre:"Lissa",
         imagen:"https://randomuser.me/api/portraits/women/3.jpg",
-        edad:25, 
+        edad:19, 
     },
     {
         id:2,
-        nombre:"rinel",
+        nombre:"Daniel",
         imagen:"https://randomuser.me/api/portraits/men/39.jpg",
-        edad:25, 
+        edad:22, 
     },
     {
         id:3,
-        nombre:"rinel",
+        nombre:"Lucy",
         imagen:"https://randomuser.me/api/portraits/women/68.jpg",
-        edad:25, 
+        edad:35, 
     },
     {
         id:4,
-        nombre:"rinel",
+        nombre:"Jessica",
         imagen:"https://randomuser.me/api/portraits/women/91.jpg",
         edad:25, 
     },
     {
         id:5,
-        nombre:"rinel",
+        nombre:"Erick",
         imagen:"https://randomuser.me/api/portraits/men/53.jpg",
-        edad:25, 
+        edad:20, 
     },
 ]
+
+export default datos
