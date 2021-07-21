@@ -1,26 +1,21 @@
 
 
 export const useStyles = () =>({
-    navegacion:{
+    position:{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:"#4C145B",
         width:"100%",
-        height:"50px",
+        height:"580px",
+    },
+    boxes:{
         display:"flex",
         flexDirection:"row",
-        alignItems:"center",
-        justifyContent:"center",
+        width:"65%",
+        padding:"50px",
+        backgroundColor:"#FFF",
+        boxSizing:"border-box",
     },
-    texto:{
-        textDecoration:"none",
-        fontFamily:"sans-serif",
-        color:"#000",
-    },
-    about:{
-        width:"100%",
-        height:"520px",
-        display:"flex",
-        flexDirection:"column",
-        alignItems:"center",
-        justifyContent:"center",
-        backgroundColor:"#E7EAED",
-    },
+   
 })
