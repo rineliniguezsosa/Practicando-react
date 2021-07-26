@@ -20,3 +20,7 @@
 ## Proyecto 5.- Accordion menu
 
 <img src="./src/Imagenes/proyecto5.png" alt="proyecto5">
+
+## Proyecto 6.- Generador de colores
+
+<img src="./src/Imagenes/proyecto6.png" alt="proyecto6">
