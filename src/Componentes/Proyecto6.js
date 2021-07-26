@@ -15,11 +15,17 @@ class Proyecto6 extends Component {
             error:false,
             lista:[],
          }
+        
     }
     Send = (e) => {
+        try{
         e.preventDefault();
         let colores = new Values(this.state.color).all(10);
         this.setState({ lista: colores });
+        }
+        catch{
+            this.setState({ error: true });
+        }   
     }
     render() { 
         const {classes} = this.props
@@ -28,7 +34,7 @@ class Proyecto6 extends Component {
                 <Box className={classes.boxform} >
                     <span className={classes.texto}>Generador de colores</span>
                     <form onSubmit={this.Send}>
-                        <TextField size="small" required onChange={(e)=> this.setState({ color: e.target.value })} label="#FFFFFF" variant="outlined">  
+                        <TextField className={`${this.state.error ? 'error' : null}`} type="text" size="small" onChange={(e)=> this.setState({ color: e.target.value })} label="#FFFFFF" variant="outlined">  
                         </TextField>
                         <Button type="submit" style={{height:"40px"}} value={this.state.color} variant="contained" color="primary">
                           agregar
@@ -37,7 +43,7 @@ class Proyecto6 extends Component {
                 </Box>
                 <Box className={classes.boxcolor} style={{width:"100%"}}>
                     {this.state.lista.map((color,index)=>{
-                        return <Cardcolor key={index} index={index} {...color}></Cardcolor>
+                        return <Cardcolor key={index} index={index} hexColor={color.hex} {...color}></Cardcolor>
                     })}
                 </Box>
             </Box>

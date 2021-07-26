@@ -21,8 +21,8 @@ export const useStyles = ()=> ({
         display:"flex",
         flexDirection:"row",
         flexWrap:"wrap",
-        padding:"50px",
-        boxSizing:"border-box",
+        justifyContent:"center",
+        
     },
 })
 
