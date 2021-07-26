@@ -3,7 +3,6 @@ export const useStyles = ()=> ({
     main:{
         display:"flex",
         flexDirection:"column",
-        
     },
     boxform:{
         width:"100%",
@@ -17,6 +16,13 @@ export const useStyles = ()=> ({
         fontFamily:"sans-serif",
         marginRight:"10px",
         fontWeight:700,
+    },
+    boxcolor:{
+        display:"flex",
+        flexDirection:"row",
+        flexWrap:"wrap",
+        padding:"50px",
+        boxSizing:"border-box",
     },
 })
 

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Box from '@material-ui/core/Box'
 import { withStyles } from '@material-ui/core/styles'
 import { useStyles } from '../Styleproyecto6/Style'
-import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField'
+import Cardcolor from './Componentesp6/Cardcolor'
 import Button from '@material-ui/core/Button'
 import Values from 'values.js'
 
@@ -18,7 +19,7 @@ class Proyecto6 extends Component {
     Send = (e) => {
         e.preventDefault();
         let colores = new Values(this.state.color).all(10);
-        console.log(colores)
+        this.setState({ lista: colores });
     }
     render() { 
         const {classes} = this.props
@@ -27,11 +28,17 @@ class Proyecto6 extends Component {
                 <Box className={classes.boxform} >
                     <span className={classes.texto}>Generador de colores</span>
                     <form onSubmit={this.Send}>
-                        <TextField size="small" onChange={(e)=> this.setState({ color: e.target.value })} label="#FFFFFF" variant="outlined"></TextField>
+                        <TextField size="small" required onChange={(e)=> this.setState({ color: e.target.value })} label="#FFFFFF" variant="outlined">  
+                        </TextField>
                         <Button type="submit" style={{height:"40px"}} value={this.state.color} variant="contained" color="primary">
                           agregar
                         </Button>
                     </form>
+                </Box>
+                <Box className={classes.boxcolor} style={{width:"100%"}}>
+                    {this.state.lista.map((color,index)=>{
+                        return <Cardcolor key={index} index={index} {...color}></Cardcolor>
+                    })}
                 </Box>
             </Box>
          );
