@@ -32,6 +32,7 @@ function Nav(props) {
                   <Button component={RouterLink} to="/Proyecto4">Proyecto4</Button>
                   <Button component={RouterLink} to="/Proyecto5">Proyecto5</Button>
                   <Button component={RouterLink} to="/Proyecto6">Proyecto6</Button>
+                  <Button component={RouterLink} to="/Proyecto7">Proyecto7</Button>
                 </ButtonGroup>
             </Grid>
         
